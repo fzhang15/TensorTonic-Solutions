@@ -13,8 +13,8 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
     N, D = X.shape[0], X.shape[1]
     w, b = np.random.randn(D), 0
     for i in range(steps):
-        p = _sigmoid(np.dot(X, w) + b)
-        dw = 1 / N * np.dot(X.T, (p - y))
+        p = _sigmoid(X @ w + b)
+        dw = 1 / N * X.T @ (p - y)
         db = np.mean(p - y)
         w -= lr * dw
         b -= lr * db
