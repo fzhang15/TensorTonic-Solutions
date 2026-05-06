@@ -5,7 +5,7 @@ def positional_encoding(seq_length: int, d_model: int) -> np.ndarray:
     Generate sinusoidal positional encodings.
     """
     # Your code here
-    model_pos = np.arange(0, d_model, 2)
+    model_pos = np.arange(0, d_model, 2).reshape(1, -1)
     seq_pos = np.arange(seq_length).reshape(-1, 1)
     _base = 10000 ** (model_pos / d_model)
 
